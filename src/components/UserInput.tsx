@@ -1,10 +1,9 @@
+import { IsNumber, isNumber } from "class-validator";
 import React, { useRef } from "react";
 
 type UserInputProps = {
-  onUserInput: (userText: string) => void; 
+  onUserInput: (userText: string) => void;
 };
-
-//validate it's a number or update input to say number
 
 export const UserInput = (props: UserInputProps) => {
   const textInputRef = useRef<HTMLInputElement>(null);
@@ -14,6 +13,7 @@ export const UserInput = (props: UserInputProps) => {
     const enteredText = textInputRef.current!.value;
     props.onUserInput(enteredText);
   };
+
   return (
     <form onSubmit={submitHandler}>
       <div>
