@@ -1,8 +1,10 @@
 import React, { useRef } from "react";
 
 type UserInputProps = {
-  onUserInput: (userText: string) => void;
+  onUserInput: (userText: string) => void; 
 };
+
+//validate it's a number or update input to say number
 
 export const UserInput = (props: UserInputProps) => {
   const textInputRef = useRef<HTMLInputElement>(null);
@@ -15,7 +17,7 @@ export const UserInput = (props: UserInputProps) => {
   return (
     <form onSubmit={submitHandler}>
       <div>
-        <label htmlFor="input-text">Input your answer</label>
+        <label htmlFor="input-text">What is the answer? </label>
         <input type="text" id="input-text" ref={textInputRef} />
       </div>
       <button type="submit">Submit</button>
