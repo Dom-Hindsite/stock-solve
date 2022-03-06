@@ -1,5 +1,10 @@
-export const UserOutput = () =>  {
-    return (<div><label>To replace
+
+type UserResponse = {
+    userResponse: string
+}
+
+export const UserOutput = (props:UserResponse) =>  {
+    return (<div><label>To replace {props.userResponse}
     </label></div>)
 
 }
