@@ -25,7 +25,7 @@ function App() {
 
   async function getRequest() {
     const params = {
-      access_key: "e319844a23823cad7cb8ff75c16b3da8",
+      access_key: " ",
       limit: 10,
     };
 
