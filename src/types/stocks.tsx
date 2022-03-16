@@ -1,4 +1,4 @@
-export interface Eod {
+export interface EodStock {
     open: number;
     high: number;
     low: number;
@@ -18,7 +18,7 @@ export interface Eod {
 
 export interface StockData {
     country?: any;
-    eod: Eod[];
+    eod: EodStock[];
     has_eod: boolean;
     has_intraday: boolean;
     name: string;
