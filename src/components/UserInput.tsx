@@ -15,9 +15,16 @@ export const UserInput = (props: UserInputProps) => {
 
   return (
     <form onSubmit={submitHandler}>
-      <div>
-        <label htmlFor="input-text">What is the answer? </label>
-        <input type="text" id="input-text" ref={textInputRef} />
+      <div className="columns">
+        <div className="column">
+          <label htmlFor="input-text">What is the answer? </label>
+          <input
+            className="input is-primary"
+            type="text"
+            id="input-text"
+            ref={textInputRef}
+          />
+        </div>
       </div>
       <button type="submit">Submit</button>
     </form>

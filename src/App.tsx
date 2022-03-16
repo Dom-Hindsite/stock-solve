@@ -5,6 +5,7 @@ import { MathProblem } from "./components/MathProblem";
 import { UserInput } from "./components/UserInput";
 import { StockData, EodStock } from "./types/stocks";
 import { GetRandomStockCodeUS } from "./util/StockCodes";
+import "bulma/css/bulma.min.css";
 
 function App() {
   const [answer, setAnswer] = useState(false);
@@ -39,8 +40,7 @@ function App() {
     //Temp
     setNum1(150);
     setNum2(125);
-    setCompanyName('Contso');
-
+    setCompanyName("Contso");
   }, []);
 
   //This function is to remind me how to call just the date EOD
@@ -80,19 +80,26 @@ function App() {
       setAnswer(true);
     } else {
       setAnswer(false);
-    } 
+    }
 
     //Temp new values
     setNum1(Math.round(Math.random() * (100 - 1) + 1));
     setNum2(Math.round(Math.random() * (num1 - 1) + 1));
-    setCompanyName('Contso');
+    setCompanyName("Contso");
   };
 
   return (
     <div className="App">
-      <MathProblem num1={num1} num2={num2} companyName={companyName} />
-      <UserInput onUserInput={inputHandler} />
-      <div>Input {answer ? "Correct" : "Wrong"}</div>
+      <div className="rows">
+        <div className="row" id="heading">
+          <h2>Welcome to the stocks game</h2>
+        </div>
+        <div className="row" id="GameSection">
+          <MathProblem num1={num1} num2={num2} companyName={companyName} />
+          <UserInput onUserInput={inputHandler} />
+          <div>Input {answer ? "Correct" : "Wrong"}</div>
+        </div>
+      </div>
     </div>
   );
 }
