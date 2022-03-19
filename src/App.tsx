@@ -74,9 +74,8 @@ function App() {
 
   const inputHandler = (userInput: string) => {
     const userAnswer = +userInput;
-    const actualAnswer = num1 - num2;
 
-    if (actualAnswer === userAnswer) {
+    if (CheckAnswer(num1, num2) === userAnswer) {
       setAnswer(true);
     } else {
       setAnswer(false);
@@ -88,21 +87,35 @@ function App() {
     setCompanyName("Contso");
   };
 
+  function CheckAnswer(prevClose: number, lastClose: number): number {
+    let answer = ((lastClose - prevClose) / prevClose) * 100;
+
+    //Round answer to 1 decimal places, use + to cast back to number type
+    answer = +answer.toFixed(1);
+
+    return answer;
+  }
+
   return (
-    
     <section className="pb-0 section">
-    <div className="container is-relative has-text-centered">
-    <div className="columns is-multiline is-centered">
-      <div className="column is-10-tablet is-8-desktop pb-0">
-        <h2 className="mt-2 mb-4 is-size-1 is-size-3-mobile has-text-weight-bold">Stocks Solve</h2>
-        <p className="subtitle has-text-grey mb-5">What is the % change in the stock value from?</p>
-        <h2 className=" mb-5 is-size-3-mobile has-text-weight-bold">Apple 📈</h2>
-        <MathProblem num1={num1} num2={num2} companyName={companyName} />
-        <UserInput onUserInput={inputHandler} />
-        <div>Input {answer ? "Correct" : "Wrong"}</div>
+      <div className="container is-relative has-text-centered">
+        <div className="columns is-multiline is-centered">
+          <div className="column is-10-tablet is-8-desktop pb-0">
+            <h2 className="mt-2 mb-4 is-size-1 is-size-3-mobile has-text-weight-bold">
+              Stocks Solve
+            </h2>
+            <p className="subtitle has-text-grey mb-5">
+              What is the % change to 1 decimal place in the stock value from?
+            </p>
+            <h2 className=" mb-5 is-size-3-mobile has-text-weight-bold">
+              Apple 📈
+            </h2>
+            <MathProblem num1={num1} num2={num2} companyName={companyName} />
+            <UserInput onUserInput={inputHandler} />
+            <div>Input {answer ? "Correct" : "Wrong"}</div>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
     </section>
   );
 }

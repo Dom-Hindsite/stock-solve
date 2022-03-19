@@ -20,11 +20,13 @@ export const UserInput = (props: UserInputProps) => {
           <div className="control is-centered">
             <form onSubmit={submitHandler}>
               <div className="columns">
-                <div className="column">
+                <div className="control">
                   <input
                     className="input is-primary"
-                    type="text"
+                    type="number"
+                    step="0.1"
                     id="input-text"
+                    placeholder="%"
                     ref={textInputRef}
                   />
                 </div>
