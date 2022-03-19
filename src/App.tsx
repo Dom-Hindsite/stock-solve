@@ -38,7 +38,7 @@ function App() {
     //GetStockData();
 
     //Temp
-    setNum1(150);
+    setNum1(170);
     setNum2(125);
     setCompanyName("Contso");
   }, []);
@@ -89,18 +89,21 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <div className="rows">
-        <div className="row" id="heading">
-          <h2>Welcome to the stocks game</h2>
-        </div>
-        <div className="row" id="GameSection">
-          <MathProblem num1={num1} num2={num2} companyName={companyName} />
-          <UserInput onUserInput={inputHandler} />
-          <div>Input {answer ? "Correct" : "Wrong"}</div>
-        </div>
+    
+    <section className="pb-0 section">
+    <div className="container is-relative has-text-centered">
+    <div className="columns is-multiline is-centered">
+      <div className="column is-10-tablet is-8-desktop pb-0">
+        <h2 className="mt-2 mb-4 is-size-1 is-size-3-mobile has-text-weight-bold">Stocks Solve</h2>
+        <p className="subtitle has-text-grey mb-5">What is the % change in the stock value from?</p>
+        <h2 className=" mb-5 is-size-3-mobile has-text-weight-bold">Apple 📈</h2>
+        <MathProblem num1={num1} num2={num2} companyName={companyName} />
+        <UserInput onUserInput={inputHandler} />
+        <div>Input {answer ? "Correct" : "Wrong"}</div>
       </div>
     </div>
+  </div>
+    </section>
   );
 }
 

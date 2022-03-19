@@ -14,19 +14,26 @@ export const UserInput = (props: UserInputProps) => {
   };
 
   return (
-    <form onSubmit={submitHandler}>
-      <div className="columns">
-        <div className="column">
-          <label htmlFor="input-text">What is the answer? </label>
-          <input
-            className="input is-primary"
-            type="text"
-            id="input-text"
-            ref={textInputRef}
-          />
+    <div className="container mb-5">
+      <div className="columns mt-2 is-centered">
+        <div className="column is-3">
+          <div className="control is-centered">
+            <form onSubmit={submitHandler}>
+              <div className="columns">
+                <div className="column">
+                  <input
+                    className="input is-primary"
+                    type="text"
+                    id="input-text"
+                    ref={textInputRef}
+                  />
+                </div>
+              </div>
+              <button type="submit">Submit</button>
+            </form>
+          </div>
         </div>
       </div>
-      <button type="submit">Submit</button>
-    </form>
+    </div>
   );
 };

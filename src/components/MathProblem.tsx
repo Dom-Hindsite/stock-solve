@@ -5,21 +5,19 @@ type MathProblemProps = {
 };
 
 export const MathProblem = (props: MathProblemProps) => {
- 
-
   return (
-    <div>
-      <h3 id="header-company">{props.companyName}</h3>
-      <label id="label-num1" >${props.num1} - </label>
-      <label id="label-num2">${props.num2}</label>
-      <div className="container">
-        <div className="columns">
-          <div className="column">
-            <h1 className="title">My Todo List</h1>
-          </div>
-          <div className="column">
-            <h1 className="title">My Todo List</h1>
-          </div>
+    <div className="container">
+      <div className="columns is-multiline">
+        <div className="column is--tablet" id="Left Group">
+          <div className="columns is-centered">${props.num1}</div>
+          <div className="columns is-centered">18/03/2022</div>
+        </div>
+        <div className="column is-4-tablet">
+          <div className="columns is-centered">to</div>
+        </div>
+        <div className="column is-4-tablet" id="Right Group">
+          <div className="columns is-centered">${props.num2}</div>
+          <div className="columns is-centered">18/01/2022</div>
         </div>
       </div>
     </div>
