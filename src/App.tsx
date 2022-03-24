@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import "./App.css";
 import { MathProblem } from "./components/MathProblem";
 import { UserInput } from "./components/UserInput";
-import { StockData, EodStock } from "./types/stocks";
+import { StockData } from "./types/stocks";
 import { GetRandomStockCodeUS } from "./util/StockCodes";
 import logo from "./StockBets.png";
 import "bulma/css/bulma.min.css";
