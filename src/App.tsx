@@ -5,10 +5,12 @@ import { MathProblem } from "./components/MathProblem";
 import { UserInput } from "./components/UserInput";
 import { StockData, EodStock } from "./types/stocks";
 import { GetRandomStockCodeUS } from "./util/StockCodes";
+import logo from "./StockBets.png";
 import "bulma/css/bulma.min.css";
 
 function App() {
-  const [answer, setAnswer] = useState(false);
+  const [answerIsCorrect, setAnswerIsCorrect] = useState(false);
+  const [answer, setAnswer] = useState(0);
   const [num1, setNum1] = useState(6);
   const [num2, setNum2] = useState(3);
   const [companyName, setCompanyName] = useState("Apple");
@@ -76,9 +78,9 @@ function App() {
     const userAnswer = +userInput;
 
     if (CheckAnswer(num1, num2) === userAnswer) {
-      setAnswer(true);
+      setAnswerIsCorrect(true);
     } else {
-      setAnswer(false);
+      setAnswerIsCorrect(false);
     }
 
     //Temp new values
@@ -88,12 +90,13 @@ function App() {
   };
 
   function CheckAnswer(prevClose: number, lastClose: number): number {
-    let answer = ((lastClose - prevClose) / prevClose) * 100;
+    let answerIsCorrect = ((lastClose - prevClose) / prevClose) * 100;
 
-    //Round answer to 1 decimal places, use + to cast back to number type
-    answer = +answer.toFixed(1);
+    //Round answerIsCorrect to 1 decimal places, use + to cast back to number type
+    answerIsCorrect = +answerIsCorrect.toFixed(1);
+    setAnswer(answerIsCorrect);
 
-    return answer;
+    return answerIsCorrect;
   }
 
   return (
@@ -101,18 +104,15 @@ function App() {
       <div className="container is-relative has-text-centered">
         <div className="columns is-multiline is-centered">
           <div className="column is-10-tablet is-8-desktop pb-0">
-            <h2 className="mt-2 mb-4 is-size-1 is-size-3-mobile has-text-weight-bold">
-              Stocks Solve
-            </h2>
-            <p className="subtitle has-text-grey mb-5">
-              What is the % change to 1 decimal place in the stock value from?
-            </p>
+            <img src={logo} className="App-logo" alt="logo" />
+            <p className="subtitle has-text-grey mb-5">What is the % change?</p>
             <h2 className=" mb-5 is-size-3-mobile has-text-weight-bold">
               Apple 📈
             </h2>
             <MathProblem num1={num1} num2={num2} companyName={companyName} />
             <UserInput onUserInput={inputHandler} />
-            <div>Input {answer ? "Correct" : "Wrong"}</div>
+            <div>{answerIsCorrect ? "Correct" : "Wrong"}</div>
+            <div>Answer: {answer}</div> 
           </div>
         </div>
       </div>

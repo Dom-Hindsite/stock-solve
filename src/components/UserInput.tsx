@@ -26,7 +26,7 @@ export const UserInput = (props: UserInputProps) => {
                     type="number"
                     step="0.1"
                     id="input-text"
-                    placeholder="%"
+                    placeholder="% 1 decimal place"
                     ref={textInputRef}
                   />
                 </div>
