@@ -26,7 +26,7 @@ function App() {
       };
       //Start with ticker call to get 30 days
       const res = await axios.get(
-        `http://api.marketstack.com/v1/tickers/${GetRandomStockCodeUS()}/eod`,
+        `https://api.marketstack.com/v1/tickers/${GetRandomStockCodeUS()}/eod`,
         { params }
       );
 
